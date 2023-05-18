@@ -14,19 +14,22 @@ class Overview extends Component {
     });
   };
 
+  handleSubmit = (event) => {
+    alert(`${this.state.task}`);
+    event.preventDefault();
+  };
+
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>New task:</label>
           <input
             type="text"
             value={this.state.task}
             onChange={this.changeTask}
           />
-          <button id="submit-task-button" type="submit">
-            Submit
-          </button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     );
