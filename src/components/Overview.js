@@ -1,15 +1,9 @@
-import { useState } from "react";
+import React, { Component } from "react";
 
-const Overview = (() => {
-  const tasks = [];
-
-  const Taskslist = () => {
-    const listItems = tasks.map((task) => <li key={task.title}></li>);
-
-    return <ul>{listItems}</ul>;
-  };
-
-  return { Taskslist };
-})();
+class Overview extends Component {
+  render() {
+    return <h1>This is a Class Component</h1>;
+  }
+}
 
 export default Overview;
