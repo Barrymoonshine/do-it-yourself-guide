@@ -5,6 +5,7 @@ class Overview extends Component {
     super(props);
     this.state = {
       task: "",
+      displayedTasks: "",
     };
   }
 
@@ -15,8 +16,8 @@ class Overview extends Component {
   };
 
   handleSubmit = (event) => {
-    alert(`${this.state.task}`);
     event.preventDefault();
+    this.setState({ displayedTasks: this.state.task });
   };
 
   render() {
@@ -31,6 +32,7 @@ class Overview extends Component {
           />
           <button type="submit">Submit</button>
         </form>
+        <p> My tasks: {this.state.displayedTasks}</p>
       </div>
     );
   }
