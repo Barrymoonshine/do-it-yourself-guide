@@ -30,20 +30,17 @@ class Overview extends Component {
   };
 
   render() {
+    const { task, displayedTasks } = this.state;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>New task:</label>
-          <input
-            type="text"
-            value={this.state.task}
-            onChange={this.changeTask}
-          />
+          <input type="text" value={task} onChange={this.changeTask} />
           <button type="submit">Submit</button>
         </form>
         <p> My tasks:</p>
         <ul>
-          {this.state.displayedTasks.map((task, index) => (
+          {displayedTasks.map((task, index) => (
             <li key={index}>{task}</li>
           ))}
         </ul>
