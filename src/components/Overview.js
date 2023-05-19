@@ -5,7 +5,7 @@ class Overview extends Component {
     super(props);
     this.state = {
       task: "",
-      displayedTasks: "",
+      displayedTasks: [],
     };
   }
 
@@ -15,9 +15,18 @@ class Overview extends Component {
     });
   };
 
+  resetForm() {
+    this.setState({
+      task: "",
+    });
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({ displayedTasks: this.state.task });
+    this.setState({
+      displayedTasks: [...this.state.displayedTasks, ...this.state.task],
+    });
+    this.resetForm();
   };
 
   render() {
