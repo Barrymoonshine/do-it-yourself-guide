@@ -24,7 +24,7 @@ class Overview extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
-      displayedTasks: [...this.state.displayedTasks, ...this.state.task],
+      displayedTasks: [...this.state.displayedTasks, this.state.task],
     });
     this.resetForm();
   };
@@ -41,7 +41,12 @@ class Overview extends Component {
           />
           <button type="submit">Submit</button>
         </form>
-        <p> My tasks: {this.state.displayedTasks}</p>
+        <p> My tasks:</p>
+        <ul>
+          {this.state.displayedTasks.map((task, index) => (
+            <li key={index}>{task}</li>
+          ))}
+        </ul>
       </div>
     );
   }
