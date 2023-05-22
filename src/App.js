@@ -1,12 +1,14 @@
 import "./App.css";
 import Overview from "./components/Overview";
 import React, { Component } from "react";
+import uniqid from "uniqid";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       task: "",
+      id: uniqid(),
       displayedTasks: [],
     };
   }
@@ -14,6 +16,7 @@ class App extends Component {
   changeTask = (event) => {
     this.setState({
       task: event.target.value,
+      id: this.state.task.id,
     });
   };
 
@@ -26,6 +29,7 @@ class App extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
+      id: uniqid(),
       displayedTasks: [...this.state.displayedTasks, this.state.task],
     });
     this.resetForm();
